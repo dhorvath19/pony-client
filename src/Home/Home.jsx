@@ -14,18 +14,14 @@ class Home extends Component {
       name: 'Rarity',
     };
 
-    this.changeDimension = this.changeDimension.bind(this);
     this.submit = this.submit.bind(this);
-  }
-
-  changeDimension(key, value) {
-    if (value >= 15 && value <= 25) {
-      this.setState({ [key]: value });
-    }
   }
 
   submit() {
     const { width, height, name } = this.state;
+    this.props.setDimension({ width });
+    this.props.setDimension({ height });
+
     const mazeParams = {
       'maze-width': width,
       'maze-height': height,
