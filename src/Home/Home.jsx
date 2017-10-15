@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import http from 'axios';
 
 const API = 'https://ponychallenge.trustpilot.com/pony-challenge';
@@ -19,9 +20,6 @@ class Home extends Component {
 
   submit() {
     const { width, height, name } = this.state;
-    this.props.setDimension({ width });
-    this.props.setDimension({ height });
-
     const mazeParams = {
       'maze-width': width,
       'maze-height': height,
@@ -37,8 +35,8 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div >
+        <div >
           Width: {this.state.width}
           <input
             type="range"
@@ -46,10 +44,10 @@ class Home extends Component {
             max={25}
             value={this.state.width}
             required
-            onChange={event => this.setState({ width: event.target.value })}
+            onChange={event => this.setState({ width: parseInt(event.target.value, 10) })}
           />
-        </div>
-        <div>
+        </div >
+        <div >
           Height: {this.state.height}
           <input
             type="range"
@@ -57,10 +55,10 @@ class Home extends Component {
             max={25}
             value={this.state.height}
             required
-            onChange={event => this.setState({ height: event.target.value })}
+            onChange={event => this.setState({ height: parseInt(event.target.value, 10) })}
           />
-        </div>
-        <div>
+        </div >
+        <div >
           Name:
           <input
             type="text"
@@ -68,13 +66,19 @@ class Home extends Component {
             required
             onChange={event => this.setState({ name: event.target.value })}
           />
-        </div>
-        <button type="submit" onClick={this.submit}>
+        </div >
+        <button type="submit" onClick={this.submit} >
           Submit
-        </button>
-      </div>
+        </button >
+      </div >
     );
   }
 }
+
+Home.propTypes = {
+  setId: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  history: PropTypes.object.isRequired,
+};
 
 export default withRouter(Home);

@@ -1,0 +1,25 @@
+.game-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.pony-wrapper {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.5) inset, 0 0 0 10000px rgba(0, 0, 0, 0.5)
+}
+
+.domokun-wrapper {
+    position: absolute;
+}
+
+.exit-wrapper {
+    position: absolute;
+}
+
+.pony-image {
+    margin-top: 85px;
+    margin-left: 85px;
+}

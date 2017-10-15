@@ -18,15 +18,10 @@ class Router extends Component {
     };
 
     this.setId = this.setId.bind(this);
-    this.setDimension = this.setDimension.bind(this);
   }
 
   setId(id) {
     this.setState({ id });
-  }
-
-  setDimension(dimension) {
-    this.setState(dimension);
   }
 
   render() {
@@ -39,7 +34,7 @@ class Router extends Component {
             width={this.state.width}
             render={() => <Game id={this.state.id} />}
           />
-          <Route render={() => <Home setId={this.setId} setDimension={this.setDimension} />} />
+          <Route render={() => <Home setId={this.setId} />} />
         </Switch>
       </BrowserRouter>
     );
